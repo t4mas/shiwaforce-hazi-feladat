@@ -1,0 +1,416 @@
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/** Base **/
+/* Breakpoints:
+1800px -       :     Large Desktop
+1200px - 1800px:     Original Syles Apply
+900px  - 1200px:     Tablet Landscape
+600px  -  900px:     Tablet Portrait
+0px    -  600px:     Mobile Phone
+
+
+Breakpoint Argument Choices (converted to em):
+
+- tablet-landscape  // 1200px,  1200 / 16 = 75em
+- tablet-portrait   // 900px,   900 / 16 = 56.25em
+- phone             // 600px,   600 / 16 = 37.5em
+
+1em = 16px  !!!
+*/
+
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	/*
+    This rule defines what 1 rem is. I rem should = 10 px.
+    Default font-size in the browser: 16px.
+    (10 / 16) * 100 = 62.5%
+    */
+	font-size: 62.5%;
+
+    @media only screen and (max-width: 75em) {
+        font-size: 56.25%;          /* 1rem = 9px,  9 / 16 = 0.5625,  ( 56.25% ) */
+    }
+
+    @media only screen and (max-width: 56.25em) {
+        font-size: 50%;          /* 1rem = 8px,  8 / 16 = 0.5,     ( 50% ) */
+    }
+
+}
+
+.body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/** Header **/
+.header {
+	background-color: #1c1c1c; 
+	color: #fff;
+	width: 100%;
+    height: 25vh;
+	padding: 2.5rem 0;
+}
+
+.header-wrapper {
+	margin: 0 auto;
+	width: 70vw;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .header-wrapper {
+       flex-direction: column;
+       gap: 3rem;
+    }
+}
+
+.logo-wrapper {
+	display: flex;
+	padding-top: 4rem;
+}
+
+.logo {
+	font-family: 'Cambo', serif;
+	font-size: 6rem;
+	line-height: 3rem;
+	align-self: flex-end;
+}
+
+.logo span {
+	font-family: 'Open-Sans', sans-serif;
+	font-size: 1.6rem;
+	color: #ebebeb;
+	font-weight: 200;
+}
+
+.form__input {
+	background-color: transparent;
+	border: 1px solid #3e3e3e;
+	border-radius: 1px;
+	padding: 0.7rem 1.3rem;
+}
+
+.form__btn {
+	color: #fff;
+	background-color: #3e3e3e;
+	border-radius: 1.2rem;
+	border: none;
+	outline: none;
+	padding: 0.7rem 1.3rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.form__btn:hover {
+    transform: translateY(-.5rem);
+}
+
+
+
+
+
+
+
+
+
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/** Section-Hero **/
+.hero {
+    height: calc(100vh - 20vh);
+    background-image: url(src/raphael-biscaldi-UzcdNdQDlig-unsplash.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.heading-wrapper {
+    margin-left: 7rem;
+}
+
+.heading-primary {
+    font-family: 'Cambo', serif;
+    font-size: 5rem;
+	line-height: 3rem;
+    font-weight: 200;
+    padding: 3rem 4rem;
+    background-color: rgba(0, 0, 0, .8);
+    
+}
+
+.heading-secondary {
+    font-family: 'Cambo', serif;
+    font-size: 3rem;
+    font-weight: 200;
+    width: 70%;
+    padding: 1.5rem 2rem;
+    margin-left: 4rem;
+    background-color: rgba(0, 0, 0, .6) ;
+
+}
+
+
+
+
+
+
+
+
+
+
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/** Section-Features **/
+.section-features {
+    background-color: #cdcdcd;
+    padding-bottom: 5rem;
+
+}
+
+.features-wrapper {
+    margin: 0 auto;
+	width: 70vw;
+    margin-top: -8rem;
+   
+    position: relative;
+    z-index: 10;
+
+	display: grid;
+    grid-template-columns: repeat(4, minmax(25%, 1fr));
+    grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 75em) {
+    .features-wrapper {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .features-wrapper {
+        grid-template-columns: 100%;
+    }
+}
+
+
+
+
+
+/*******************************************************/
+/** Feature **/
+.feature {
+    background-image: linear-gradient(to bottom, #f5f5f5, #e9e9e9);
+    color: #1c1c1c;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    transition: all .2s;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+
+.feature__span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 7rem;
+    font-weight: 700;
+
+}
+
+.feature__heading {
+    font-family: 'Yellowtail', cursive;
+    font-size: 3rem;
+    padding: 1rem;
+
+}
+
+.feature__text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+}
+
+.feature__text--blue {
+    color: #2fb2eb;
+}
+
+.feature__text--grey {
+    color: #3e3e3e;
+}
+
+
+.feature__btn {
+    color: #fff;
+    font-family: 'Cambo', serif;
+    font-size: 2rem;
+    padding: .5rem 2.5rem;
+    margin-top: 2rem;
+    border: none;
+    outline: none;
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all .3s;
+    
+
+    background-image: linear-gradient(to bottom, #5495b9, #29698d);
+
+}
+
+.feature__btn:hover {
+    transform: translateY(-.5rem);
+}
+
+
+
+/*******************************************************/
+/** .feature:hover **/
+.feature:hover {
+    background-image: linear-gradient(to bottom, #383838, #1f1f1f);
+    color: #fff;
+}
+
+.feature:hover .feature__btn  {
+    background-image: linear-gradient(to bottom, #f2f2f2, #c7c7c7);
+    color: #202020;
+}
+
+.feature:hover .feature__text--grey {
+    color: #cdcdcd;
+    transition: all .3s;
+}
+
+
+
+
+
+/*******************************************************/
+/** Utility calsses for defining the border-radius of the feature <div>. **/
+.radius--1 {
+    border-top-left-radius: 3rem !important ;
+    border-bottom-right-radius: 3rem !important;
+
+}
+
+.radius--2 {
+    border-top-right-radius: 3rem !important;
+    border-bottom-left-radius: 3rem !important;
+}
+
+
+
+
+
+/*******************************************************/
+/** Feature-Box **/
+.features-box {
+    margin: 0 auto;
+    margin-top: 5rem;
+	width: 70vw;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 200;
+
+    background-image: linear-gradient(to bottom, #b7b7b7, #a6a6a6);
+    padding: 2.5rem;
+    padding-left: 35rem;
+    border-radius: 2rem;
+}
+
+@media only screen and (max-width: 75em) {
+    .features-box {
+        padding: 5rem;
+        
+    }
+}
+
+
+
+
+
+/*******************************************************/
+/** Social-Icons **/
+.social-icon-list {
+    margin: 0 auto;
+    margin-top: 5rem;
+	width: 70vw;
+}
+
+
+@media only screen and (max-width: 75em) {
+    .social-icon-list {
+        text-align: center;
+    }
+}
+
+.social-icon {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+@media only screen and (max-width: 75em) {
+    .social-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+.social-icon:hover {
+    transform: translateY(-.5rem);
+
+}
+
+.social-icon:not(.last-child) {
+   margin-left: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+/** Footer **/
+.footer {
+    background-image: linear-gradient(to right bottom, #252525, #303030);
+    height: 20vh;
+}
+
+
+
+
+/******************************************** Kark Tamas ******************************************************/
+/**************************************************************************************************************/
+/**************************************************************************************************************/
+
+
+
